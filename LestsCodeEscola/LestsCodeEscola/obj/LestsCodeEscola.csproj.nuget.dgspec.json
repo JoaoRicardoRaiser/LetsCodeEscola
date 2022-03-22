@@ -1,24 +1,20 @@
 {
   "format": 1,
   "restore": {
-    "C:\\Users\\joao.raiser\\Desktop\\Pessoal\\Programacao\\C#\\LetsCodeEscola\\LestsCodeEscola\\LestsCodeEscola\\LestsCodeEscola.csproj": {}
+    "C:\\Repositories\\letscode\\LetsCodeEscola\\LestsCodeEscola\\LestsCodeEscola\\LestsCodeEscola.csproj": {}
   },
   "projects": {
-    "C:\\Users\\joao.raiser\\Desktop\\Pessoal\\Programacao\\C#\\LetsCodeEscola\\LestsCodeEscola\\LestsCodeEscola\\LestsCodeEscola.csproj": {
+    "C:\\Repositories\\letscode\\LetsCodeEscola\\LestsCodeEscola\\LestsCodeEscola\\LestsCodeEscola.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "C:\\Users\\joao.raiser\\Desktop\\Pessoal\\Programacao\\C#\\LetsCodeEscola\\LestsCodeEscola\\LestsCodeEscola\\LestsCodeEscola.csproj",
+        "projectUniqueName": "C:\\Repositories\\letscode\\LetsCodeEscola\\LestsCodeEscola\\LestsCodeEscola\\LestsCodeEscola.csproj",
         "projectName": "LestsCodeEscola",
-        "projectPath": "C:\\Users\\joao.raiser\\Desktop\\Pessoal\\Programacao\\C#\\LetsCodeEscola\\LestsCodeEscola\\LestsCodeEscola\\LestsCodeEscola.csproj",
-        "packagesPath": "C:\\Users\\joao.raiser\\.nuget\\packages\\",
-        "outputPath": "C:\\Users\\joao.raiser\\Desktop\\Pessoal\\Programacao\\C#\\LetsCodeEscola\\LestsCodeEscola\\LestsCodeEscola\\obj\\",
+        "projectPath": "C:\\Repositories\\letscode\\LetsCodeEscola\\LestsCodeEscola\\LestsCodeEscola\\LestsCodeEscola.csproj",
+        "packagesPath": "C:\\Users\\ivo.junior\\.nuget\\packages\\",
+        "outputPath": "C:\\Repositories\\letscode\\LetsCodeEscola\\LestsCodeEscola\\LestsCodeEscola\\obj\\",
         "projectStyle": "PackageReference",
-        "fallbackFolders": [
-          "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages"
-        ],
         "configFilePaths": [
-          "C:\\Users\\joao.raiser\\AppData\\Roaming\\NuGet\\NuGet.Config",
-          "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.FallbackLocation.config",
+          "C:\\Users\\ivo.junior\\AppData\\Roaming\\NuGet\\NuGet.Config",
           "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
         ],
         "originalTargetFrameworks": [
@@ -58,7 +54,7 @@
               "privateAssets": "all"
             }
           },
-          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\5.0.203\\RuntimeIdentifierGraph.json"
+          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\6.0.200\\RuntimeIdentifierGraph.json"
         }
       }
     }
