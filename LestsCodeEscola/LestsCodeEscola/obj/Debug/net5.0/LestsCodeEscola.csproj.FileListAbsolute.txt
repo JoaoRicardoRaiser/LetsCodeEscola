@@ -1,0 +1,16 @@
+C:\Users\joao.raiser\Desktop\Pessoal\Programacao\C#\LetsCodeEscola\LestsCodeEscola\LestsCodeEscola\obj\Debug\net5.0\LestsCodeEscola.csprojAssemblyReference.cache
+C:\Users\joao.raiser\Desktop\Pessoal\Programacao\C#\LetsCodeEscola\LestsCodeEscola\LestsCodeEscola\obj\Debug\net5.0\LestsCodeEscola.GeneratedMSBuildEditorConfig.editorconfig
+C:\Users\joao.raiser\Desktop\Pessoal\Programacao\C#\LetsCodeEscola\LestsCodeEscola\LestsCodeEscola\obj\Debug\net5.0\LestsCodeEscola.AssemblyInfoInputs.cache
+C:\Users\joao.raiser\Desktop\Pessoal\Programacao\C#\LetsCodeEscola\LestsCodeEscola\LestsCodeEscola\obj\Debug\net5.0\LestsCodeEscola.AssemblyInfo.cs
+C:\Users\joao.raiser\Desktop\Pessoal\Programacao\C#\LetsCodeEscola\LestsCodeEscola\LestsCodeEscola\obj\Debug\net5.0\LestsCodeEscola.csproj.CoreCompileInputs.cache
+C:\Users\joao.raiser\Desktop\Pessoal\Programacao\C#\LetsCodeEscola\LestsCodeEscola\LestsCodeEscola\bin\Debug\net5.0\LestsCodeEscola.exe
+C:\Users\joao.raiser\Desktop\Pessoal\Programacao\C#\LetsCodeEscola\LestsCodeEscola\LestsCodeEscola\bin\Debug\net5.0\LestsCodeEscola.deps.json
+C:\Users\joao.raiser\Desktop\Pessoal\Programacao\C#\LetsCodeEscola\LestsCodeEscola\LestsCodeEscola\bin\Debug\net5.0\LestsCodeEscola.runtimeconfig.json
+C:\Users\joao.raiser\Desktop\Pessoal\Programacao\C#\LetsCodeEscola\LestsCodeEscola\LestsCodeEscola\bin\Debug\net5.0\LestsCodeEscola.runtimeconfig.dev.json
+C:\Users\joao.raiser\Desktop\Pessoal\Programacao\C#\LetsCodeEscola\LestsCodeEscola\LestsCodeEscola\bin\Debug\net5.0\LestsCodeEscola.dll
+C:\Users\joao.raiser\Desktop\Pessoal\Programacao\C#\LetsCodeEscola\LestsCodeEscola\LestsCodeEscola\bin\Debug\net5.0\ref\LestsCodeEscola.dll
+C:\Users\joao.raiser\Desktop\Pessoal\Programacao\C#\LetsCodeEscola\LestsCodeEscola\LestsCodeEscola\bin\Debug\net5.0\LestsCodeEscola.pdb
+C:\Users\joao.raiser\Desktop\Pessoal\Programacao\C#\LetsCodeEscola\LestsCodeEscola\LestsCodeEscola\obj\Debug\net5.0\LestsCodeEscola.dll
+C:\Users\joao.raiser\Desktop\Pessoal\Programacao\C#\LetsCodeEscola\LestsCodeEscola\LestsCodeEscola\obj\Debug\net5.0\ref\LestsCodeEscola.dll
+C:\Users\joao.raiser\Desktop\Pessoal\Programacao\C#\LetsCodeEscola\LestsCodeEscola\LestsCodeEscola\obj\Debug\net5.0\LestsCodeEscola.pdb
+C:\Users\joao.raiser\Desktop\Pessoal\Programacao\C#\LetsCodeEscola\LestsCodeEscola\LestsCodeEscola\obj\Debug\net5.0\LestsCodeEscola.genruntimeconfig.cache
