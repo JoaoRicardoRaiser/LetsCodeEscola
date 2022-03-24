@@ -8,7 +8,7 @@ namespace LestsCodeEscola.Professor.Repository
     {
         public ProfessorRepository()
         {
-            Host = Directory.GetCurrentDirectory() + @"..\..\..\..\professor\Database\professores.json";
+            Host = Directory.GetCurrentDirectory() + @"..\..\..\..\professor\Database\professor.json";
         }
 
         public Entidades.Professor ObterPorCpf(string cpf)

@@ -6,15 +6,20 @@ namespace LestsCodeEscola.Professor.Entidades
     public class Professor : EntidadeBase
     {
         public string Nome { get; set; }
-        public int Idade { get; set; }
         public string Disciplina { get; set; }
         public string Cpf { get; set; }
-        public Guid AulaId { get; set; }
 
-        public Professor(string nome, int idade)
+        public Professor(string nome, string disciplina, string cpf)
         {
             Nome = nome;
-            Idade = idade;
+            Disciplina = disciplina;
+            Cpf = cpf;
+        }
+
+        public void Atualizar(string nome, string disciplina)
+        {
+            Nome = nome;
+            Disciplina = disciplina;
         }
     }
 }
