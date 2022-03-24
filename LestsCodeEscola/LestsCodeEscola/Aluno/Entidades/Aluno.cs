@@ -12,15 +12,17 @@ namespace LestsCodeEscola.Aluno.Entidades
         public Guid TurmaId { get; set; }
         //public virtual Turma Turma { get; set; }
 
-        public Aluno(string nome, int idade)
+        public Aluno(string nome, int idade, string cpf)
         {
             Nome = nome;
             Idade = idade;
+            Cpf = cpf;
         }
 
         public void Atualizar(string novoNome, int novaIdade)
         {
-
+            Nome = novoNome;
+            Idade = novaIdade;
         }
     }
 }

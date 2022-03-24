@@ -41,7 +41,8 @@ namespace AtividadeScrumLetsCode.Repositories
         public void Atualizar(T entidade)
         {
             var database = GetDatabase();
-            database.Remove(entidade);
+            var entidadeSalva = database.SingleOrDefault(x => x.Id == entidade.Id);
+            database.Remove(entidadeSalva);
             database.Add(entidade);
             UpdateDatabase(database);
         }
@@ -49,7 +50,8 @@ namespace AtividadeScrumLetsCode.Repositories
         public void Deletar(T entidade)
         {
             var database = GetDatabase();
-            database.Remove(entidade);
+            var entidadeSalva = database.SingleOrDefault(x => x.Id == entidade.Id);
+            database.Remove(entidadeSalva);
             UpdateDatabase(database);
         }
     }

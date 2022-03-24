@@ -55,69 +55,126 @@ namespace LestsCodeEscola.Aluno.Services
                     Menu();
                     break;
             }
+
+            Menu();
         }
 
         public void Buscar()
         {
             var todosAlunosSalvos = _alunoRepository.GetAll();
+            Console.Clear();
+            Console.WriteLine("Alunos cadastrados:");
             foreach(var aluno in todosAlunosSalvos)
             {
-                Console.WriteLine($"Nome: {aluno.Nome}\nIdade: {aluno.Idade}\n");
+                Console.WriteLine($"\nNome: {aluno.Nome}\nIdade: {aluno.Idade}\nCpf: {aluno.Cpf}");
             }
+
+            Console.WriteLine("\nDigite qualquer tecla para continuar...");
+            Console.ReadKey();
         }
 
         public void Cadastrar()
         {
-            Console.Clear();
+            try
+            {
+                Console.Clear();
 
-            Console.Write("Digite o nome: ");
-            var nome = Console.ReadLine();
+                Console.Write("Digite o nome: ");
+                var nome = Console.ReadLine();
 
-            Console.Write("Digite a idade: ");
-            var idade = Convert.ToInt32(Console.ReadLine());
+                Console.Write("\nDigite a idade: ");
+                var idade = Convert.ToInt32(Console.ReadLine());
 
-            //var todasAsTurmas = _turmaRepository.GetAll();
-            //Mostrar todas as turmas
+                Console.Write("\nDigite o CPF (sem . e -): ");
+                var cpf = Console.ReadLine();
 
-            var aluno = new Entidades.Aluno(nome, idade);
+                //var todasAsTurmas = _turmaRepository.GetAll();
+                //Mostrar todas as turmas
 
-            _alunoRepository.Criar(aluno);
+                var aluno = new Entidades.Aluno(nome, idade, cpf);
+
+                _alunoRepository.Criar(aluno);
+
+                Console.WriteLine("\nAluno cadastrado com sucesso!");
+                Thread.Sleep(2000);
+            }
+            catch(Exception e)
+            {
+                Console.WriteLine($"Ocorreu um erro ao cadastrar aluno: {e}\n");
+                Console.WriteLine("Digite qualquer tecla para continuar...");
+                Console.ReadKey();
+            }
         }
 
         public void Editar()
         {
-            Console.Clear();
-            Console.Write("Digite o CPF do aluno (sem . e -): ");
-            var cpf = Console.ReadLine();
+            try
+            {
+                Console.Clear();
+                Console.Write("Digite o CPF do aluno (sem . e -): ");
+                var cpf = Console.ReadLine();
 
-            var alunoSalvo = _alunoRepository.ObterPorCpf(cpf);
+                var alunoSalvo = _alunoRepository.ObterPorCpf(cpf);
 
-            Console.WriteLine("\nAluno encontrado\n");
-            Console.WriteLine($"**** Nome: {alunoSalvo.Nome}\nIdade: {alunoSalvo.Idade} ****\n");
+                Console.WriteLine("\nAluno encontrado\n");
+                Console.WriteLine($"**** \nNome: {alunoSalvo.Nome}\nIdade: {alunoSalvo.Idade}\n****\n");
 
-            Console.WriteLine("\nDigite o novo nome: ");
-            var novoNome = Console.ReadLine();
+                Console.WriteLine("\nDigite o novo nome: ");
+                var novoNome = Console.ReadLine();
+                if (novoNome == "")
+                {
+                    novoNome = alunoSalvo.Nome;
+                }
 
-            Console.WriteLine("\nDigite a nova idade: ");
-            var novaIdade = Convert.ToInt32(Console.ReadLine());
+                Console.WriteLine("\nDigite a nova idade: ");
+                var novaIdade = Convert.ToInt32(Console.ReadLine());
 
-            alunoSalvo.Atualizar(novoNome, novaIdade);
+                alunoSalvo.Atualizar(novoNome, novaIdade);
 
-            _alunoRepository.Atualizar(alunoSalvo);
+                _alunoRepository.Atualizar(alunoSalvo);
+
+                Console.WriteLine("\nAluno editado com sucesso!");
+                Thread.Sleep(2000);
+            }
+            catch(Exception e)
+            {
+                Console.WriteLine($"Ocorreu um erro ao editar aluno: {e}\n");
+                Console.WriteLine("Digite qualquer tecla para continuar...");
+                Console.ReadKey();
+            }
+            
         }
 
         public void Deletar()
         {
-            Console.Clear();
-            Console.Write("Digite o CPF do aluno (sem . e -): ");
-            var cpf = Console.ReadLine();
+            try
+            {
+                Console.Clear();
+                Console.Write("Digite o CPF do aluno (sem . e -): ");
+                var cpf = Console.ReadLine();
 
-            var alunoSalvo = _alunoRepository.ObterPorCpf(cpf);
+                var alunoSalvo = _alunoRepository.ObterPorCpf(cpf);
+                if (alunoSalvo == null)
+                {
+                    Console.WriteLine($"Aluno com cpf {cpf} não encontrado");
+                    Thread.Sleep(2000);
+                    return;
+                }
 
-            Console.WriteLine("\nAluno encontrado\n");
-            Console.WriteLine($"**** Nome: {alunoSalvo.Nome}\nIdade: {alunoSalvo.Idade} ****\n");
+                Console.WriteLine("\nAluno encontrado\n");
+                Console.WriteLine($"**** Nome: {alunoSalvo.Nome}\nIdade: {alunoSalvo.Idade} ****\n");
 
-            _alunoRepository.Deletar(alunoSalvo);
+                _alunoRepository.Deletar(alunoSalvo);
+
+                Console.WriteLine($"\nAluno com CPF {alunoSalvo.Cpf} deletado com sucesso!");
+                Thread.Sleep(2000);
+            }
+            catch(Exception e)
+            {
+                Console.WriteLine($"Ocorreu um erro ao deletar aluno: {e}\n");
+                Console.WriteLine("Digite qualquer tecla para continuar...");
+                Console.ReadKey();
+            }
         }
     }
 }
