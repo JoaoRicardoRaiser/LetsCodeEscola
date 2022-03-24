@@ -1,5 +1,6 @@
 ﻿using LestsCodeEscola.Aluno.Services;
 using LestsCodeEscola.Aula.Services;
+using LestsCodeEscola.Professor.Services;
 using System;
 using System.Threading;
 
@@ -11,6 +12,7 @@ namespace LestsCodeEscola
         {
             var alunoService = new AlunoService();
             var aulaService = new AulaService();
+            var professorService = new ProfessorService();
 
             Console.Title = "Lets Code Escola";
             Console.Clear();
@@ -32,7 +34,7 @@ namespace LestsCodeEscola
                     break;
 
                 case "2":
-                    //gameService.CadastrarJogo();
+                    professorService.Menu();
                     break;
 
                 case "3":
