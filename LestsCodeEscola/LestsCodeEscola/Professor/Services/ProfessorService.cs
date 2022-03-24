@@ -16,7 +16,7 @@ namespace LestsCodeEscola.Professor.Services
 
         public void Menu()
         {
-            Console.Title = "Menu Aluno";
+            Console.Title = "Menu Professor";
             Console.Clear();
             Console.WriteLine("Seja bem vindo ao menu de Professor\n");
             while (true)
@@ -26,6 +26,7 @@ namespace LestsCodeEscola.Professor.Services
                 Console.WriteLine("2 - Cadastrar");
                 Console.WriteLine("3 - Editar");
                 Console.WriteLine("4 - Deletar");
+                Console.WriteLine("5 - Menu de Chamada");
                 Console.WriteLine("0 - Voltar\n");
                 Console.Write("Opção: ");
 
@@ -55,6 +56,41 @@ namespace LestsCodeEscola.Professor.Services
                         Console.WriteLine("\nOpção invalida, tente novamente...\n");
                         Thread.Sleep(2000);
                         this.Menu();
+                        break;
+                }
+            }
+        }
+
+        public void MenuPresenca()
+        {
+            Console.Title = "Chamada";
+            Console.Clear();
+            while (true)
+            {
+                Console.WriteLine("Digite a opção que você deseja\n");
+                Console.WriteLine("1 - Inserir Presença de Aluno");
+                Console.WriteLine("2 - Finalizar Chamada de Hoje");
+                Console.WriteLine("0 - Voltar\n");
+                Console.Write("Opção: ");
+
+                switch (Console.ReadLine())
+                {
+                    case "1":
+                        // Criar Metodo Que integra aula para inserir alunos
+                        break;
+
+                    case "2":
+                        // Criar Metodo Que finaliza chamada
+                        break;
+
+                    case "0":
+                        this.Menu();
+                        break;
+
+                    default:
+                        Console.WriteLine("\nOpção invalida, tente novamente...\n");
+                        Thread.Sleep(2000);
+                        this.MenuPresenca();
                         break;
                 }
             }
