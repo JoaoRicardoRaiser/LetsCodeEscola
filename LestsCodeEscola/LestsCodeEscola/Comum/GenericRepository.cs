@@ -1,4 +1,5 @@
 ﻿using LestsCodeEscola.Comum;
+using System;
 using System.Collections.Generic;
 using System.IO;
 using System.Linq;
@@ -13,12 +14,7 @@ namespace AtividadeScrumLetsCode.Repositories
         protected List<T> GetDatabase()
         {
             var registros = File.ReadAllText(Host);
-            if (registros == "")
-            {
-                return new List<T>();
-            }
-
-            return JsonSerializer.Deserialize<List<T>>(registros);
+            return string.IsNullOrEmpty(registros) ? new List<T>() : JsonSerializer.Deserialize<List<T>>(registros);
         }
 
         protected void UpdateDatabase(List<T> database)
