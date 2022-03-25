@@ -63,14 +63,14 @@ namespace LestsCodeEscola.Aula.Services
             Console.Clear();
             Console.WriteLine("Digite a tipo de consulta que você deseja\n");
             Console.WriteLine("1 - Consultar aulas da turma");
-            Console.WriteLine("2 - Consultar todas as aulas");
+            Console.WriteLine("2 - Consultar todas as turmas");
 
             switch (Console.ReadLine())
             {
                 case "1":
                     Console.Write("Digite a turma para consultar as aulas: ");
                     var turma = Console.ReadLine().ToUpper();
-                    var aulasDaTurma = _aulaRepository.ObterPorTurma(turma);
+                    var aulasDaTurma = _turmaRepository.ObterPorTurma(turma);
                     if (aulasDaTurma != null)
                         Console.WriteLine($"Disciplina: {aulasDaTurma.Disciplina}\nHorario: {aulasDaTurma.Horario}\n");
                     else
@@ -100,8 +100,8 @@ namespace LestsCodeEscola.Aula.Services
             Console.Write("Digite a disciplina: ");
             var disciplina = Console.ReadLine().ToUpper();
 
-            Console.Write("Digite o nome do Professor: ");
-            var nomeProfessor = Console.ReadLine();
+            Console.Write("Digite o nome do Aluno: ");
+            var nomeAluno = Console.ReadLine();
 
             Console.Write("Digite a turma: ");
             var turma = Console.ReadLine().ToUpper();
@@ -127,7 +127,7 @@ namespace LestsCodeEscola.Aula.Services
             {
                 Console.WriteLine("\nDisciplina encontrada\n");
                 Console.WriteLine($"**** Disciplina: {turmaSalva.Disciplina}\nTurma: " +
-                    $"{turmaSalva.Turma}\nProfessor: {turmaSalva.NomeAluno}\nHorário: {turmaSalva.Horario} ****\n");
+                    $"{turmaSalva.Turma}\nAluno: {turmaSalva.NomeAluno}\nHorário: {turmaSalva.Horario} ****\n");
 
                 Console.WriteLine("\nDigite o novo nome da disciplina: ");
                 var disciplinaNova = Console.ReadLine().ToUpper();
