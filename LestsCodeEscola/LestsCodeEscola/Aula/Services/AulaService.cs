@@ -21,7 +21,7 @@ namespace LestsCodeEscola.Aula.Services
             Console.WriteLine("Seja bem vindo ao menu de Aula\n");
 
             Console.WriteLine("Digite a opção que você deseja\n");
-            Console.WriteLine("1 - Consultar aulas da turma");
+            Console.WriteLine("1 - Consulta de aulas");
             Console.WriteLine("2 - Cadastrar");
             Console.WriteLine("3 - Editar");
             Console.WriteLine("4 - Deletar");
@@ -60,10 +60,36 @@ namespace LestsCodeEscola.Aula.Services
 
         public void Consultar()
         {
-            var aulasDaTurma = _aulaRepository.GetAll();
-            foreach (var aula in aulasDaTurma)
+            Console.Clear();
+            Console.WriteLine("Digite a tipo de consulta que você deseja\n");
+            Console.WriteLine("1 - Consultar aulas da turma");
+            Console.WriteLine("2 - Consultar todas as aulas");
+
+            switch (Console.ReadLine())
             {
-                Console.WriteLine($"Disciplina: {aula.Disciplina}\nHorario: {aula.Horario}\n");
+                case "1":
+                    Console.Write("Digite a turma para consultar as aulas: ");
+                    var turma = Console.ReadLine().ToUpper();
+                    var aulasDaTurma = _aulaRepository.ObterPorTurma(turma);
+                    if (aulasDaTurma != null)
+                        Console.WriteLine($"Disciplina: {aulasDaTurma.Disciplina}\nHorario: {aulasDaTurma.Horario}\n");
+                    else
+                        Console.WriteLine("Turma não encontrada");
+                    break;
+
+                case "2":
+                    var todasAulas = _aulaRepository.GetAll();
+                    foreach (var aula in todasAulas)
+                    {
+                        Console.WriteLine($"Disciplina: {aula.Disciplina}\nHorario: {aula.Horario}\nTurma: { aula.Turma}\n");
+                    }
+                    break;
+
+                default:
+                    Console.WriteLine("\nOpção invalida, tente novamente...\n");
+                    Thread.Sleep(1000);
+                    Menu();
+                    break;
             }
         }
 
@@ -72,13 +98,13 @@ namespace LestsCodeEscola.Aula.Services
             Console.Clear();
 
             Console.Write("Digite a disciplina: ");
-            var disciplina = Console.ReadLine();
+            var disciplina = Console.ReadLine().ToUpper();
 
             Console.Write("Digite o nome do Professor: ");
             var nomeProfessor = Console.ReadLine();
 
             Console.Write("Digite a turma: ");
-            var turma = Console.ReadLine();
+            var turma = Console.ReadLine().ToUpper();
 
             Console.Write("Digite o horário: ");
             var hora = Console.ReadLine();
@@ -86,51 +112,71 @@ namespace LestsCodeEscola.Aula.Services
             var aula = new Entidades.Aula(disciplina, nomeProfessor, turma, hora);
 
             _aulaRepository.Criar(aula);
-            Console.WriteLine("Cadastro Conclúido.");
+            Console.WriteLine("Cadastro Concluído.");
         }
 
         public void Editar()
         {
             Console.Clear();
-            Console.Write("Digite a disciplina editar: ");
-            var disciplina = Console.ReadLine();
+            Console.Write("Digite a aula que deseja editar: ");
+            var disciplina = Console.ReadLine().ToUpper();
 
             var aulaSalva = _aulaRepository.ObterPorDisciplina(disciplina);
 
-            Console.WriteLine("\nDisciplina encontrada\n");
-            Console.WriteLine($"**** Disciplina: {aulaSalva.Disciplina}\nTurma: {aulaSalva.Turma}\nProfessor: {aulaSalva.NomeProfessor}\nHorário: {aulaSalva.Horario} ****\n");
+            if (aulaSalva != null)
+            {
+                Console.WriteLine("\nDisciplina encontrada\n");
+                Console.WriteLine($"**** Disciplina: {aulaSalva.Disciplina}\nTurma: " +
+                    $"{aulaSalva.Turma}\nProfessor: {aulaSalva.NomeProfessor}\nHorário: {aulaSalva.Horario} ****\n");
 
-            Console.WriteLine("\nDigite o novo nome da aula: ");
-            var disciplinaNova = Console.ReadLine();
+                Console.WriteLine("\nDigite o novo nome da aula: ");
+                var disciplinaNova = Console.ReadLine().ToUpper();
 
-            Console.WriteLine("\nDigite o novo nome do Professor: ");
-            var nomeProfessor = Console.ReadLine();
+                Console.WriteLine("\nDigite o novo nome do Professor: ");
+                var nomeProfessor = Console.ReadLine();
 
-            Console.WriteLine("\nDigite o novo nome da turma: ");
-            var turma = Console.ReadLine();
+                Console.WriteLine("\nDigite o novo nome da turma: ");
+                var turma = Console.ReadLine().ToUpper();
 
-            Console.WriteLine("\nDigite o novo horário: ");
-            var hora = Console.ReadLine();
+                Console.WriteLine("\nDigite o novo horário: ");
+                var hora = Console.ReadLine();
 
-            aulaSalva.Atualizar(disciplinaNova, nomeProfessor, turma, hora);
+                aulaSalva.Atualizar(disciplinaNova, nomeProfessor, turma, hora);
 
 
-            _aulaRepository.Atualizar(aulaSalva);
-            Console.WriteLine("Atualização Conclúida.");
+                _aulaRepository.Atualizar(aulaSalva);
+                Console.WriteLine("Atualização Conclúida.");
+            }
+            else
+            {
+                Console.WriteLine("Aula não encontrada");
+                Thread.Sleep(1000);
+                Menu();
+            }
         }
 
         public void Deletar()
         {
             Console.Clear();
-            Console.Write("Digite a disciplina deletar: ");
-            var disciplina = Console.ReadLine();
+            Console.Write("Digite a aula deletar: ");
+            var disciplina = Console.ReadLine().ToUpper();
 
-            var aulaSalvo = _aulaRepository.ObterPorDisciplina(disciplina);
+            var aulaSalva = _aulaRepository.ObterPorDisciplina(disciplina);
 
-            Console.WriteLine("\nDisciplina encontrada\n");
-            Console.WriteLine($"**** Disciplina: {aulaSalvo.Disciplina} ****\n");
+            if (aulaSalva != null)
+            {
+                Console.WriteLine("\nDisciplina encontrada\n");
+                Console.WriteLine($"**** Disciplina: {aulaSalva.Disciplina} ****\n");
 
-            _aulaRepository.Deletar(aulaSalvo);
+                _aulaRepository.Deletar(aulaSalva);
+                Console.WriteLine("Registro Excluído.");
+            }
+            else
+            {
+                Console.WriteLine("Aula não encontrada");
+                Thread.Sleep(1000);
+                Menu();
+            }
         }
 
     }
