@@ -1,14 +1,15 @@
 ﻿using AtividadeScrumLetsCode.Repositories;
+using LestsCodeEscola.Estudante.Entidades;
 using System.IO;
 using System.Linq;
 
-namespace LestsCodeEscola.Aluno.Repository
+namespace LestsCodeEscola.Estudante.Repository
 {
-    public class AlunoRepository: GenericRepository<Entidades.Aluno>
+    public class AlunoRepository: GenericRepository<Aluno>
     {
         public AlunoRepository()
         {
-            Host = Directory.GetCurrentDirectory() + @"..\..\..\..\Aluno\Database\alunos.json";
+            Host = Directory.GetCurrentDirectory() + @"..\..\..\..\Estudante\Database\alunos.json";
         }
 
         public Entidades.Aluno ObterPorCpf(string cpf)

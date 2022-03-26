@@ -5,15 +5,15 @@ namespace LestsCodeEscola.Aula.Entidades
     public class Turma : EntidadeBase
     {
         public string Disciplina { get; set; }
-        public string NomeProfessor { get; set; }
-        public string Turma { get; set; }
+        public string NomeAluno { get; set; }
+        public string NomeTurma { get; set; }
         public string Horario { get; set; }
 
-        public Turma(string disciplina, string nomeAluno, string turma, string horario)
+        public Turma(string disciplina, string nomeAluno, string nomeTurma, string horario)
         {
             Disciplina = disciplina;
             NomeAluno = nomeAluno;
-            Turma = turma;
+            NomeTurma = nomeTurma;
             Horario = horario;
         }
 
@@ -21,7 +21,7 @@ namespace LestsCodeEscola.Aula.Entidades
         {
             Disciplina = disciplinaNova;
             NomeAluno = nomeAluno;
-            Turma = turma;
+            NomeTurma = turma;
             Horario = hora;
 
         }

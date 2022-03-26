@@ -8,7 +8,7 @@ namespace LestsCodeEscola.Aula.Repository
     {
         public TurmaRepository()
         {
-            Host = Directory.GetCurrentDirectory() + @"..\..\..\..\aula\Database\aulas.json";
+            Host = Directory.GetCurrentDirectory() + @"..\..\..\..\Turma\Database\turmas.json";
         }
 
         public Entidades.Turma ObterPorDisciplina(string disciplina)
@@ -20,7 +20,7 @@ namespace LestsCodeEscola.Aula.Repository
         public Entidades.Turma ObterPorTurma(string turma)
         {
             var database = GetDatabase();
-            return database.FirstOrDefault(x => x.Turma == turma);
+            return database.FirstOrDefault(x => x.NomeTurma == turma);
         }
     }
 }

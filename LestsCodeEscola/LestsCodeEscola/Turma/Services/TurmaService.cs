@@ -79,9 +79,9 @@ namespace LestsCodeEscola.Aula.Services
 
                 case "2":
                     var todasTurmas = _turmaRepository.GetAll();
-                    foreach (var turma in todasTurmas)
+                    foreach (var turmaSalva in todasTurmas)
                     {
-                        Console.WriteLine($"Disciplina: {turma.Disciplina}\nHorario: {turma.Horario}\nTurma: { turma.Turma}\n");
+                        Console.WriteLine($"Disciplina: {turmaSalva.Disciplina}\nHorario: {turmaSalva.Horario}\nTurma: { turmaSalva.NomeTurma}\n");
                     }
                     break;
 
@@ -104,14 +104,14 @@ namespace LestsCodeEscola.Aula.Services
             var nomeAluno = Console.ReadLine();
 
             Console.Write("Digite a turma: ");
-            var turma = Console.ReadLine().ToUpper();
+            var nomeTurma = Console.ReadLine().ToUpper();
 
             Console.Write("Digite o horário: ");
             var hora = Console.ReadLine();
 
-            var turma = new Entidades.Turma(disciplina, nomeAluno, turma, hora);
+            var turma = new Entidades.Turma(disciplina, nomeAluno, nomeTurma, hora);
 
-            _aulaRepository.Criar(turma);
+            _turmaRepository.Criar(turma);
             Console.WriteLine("Cadastro Concluído.");
         }
 
@@ -127,7 +127,7 @@ namespace LestsCodeEscola.Aula.Services
             {
                 Console.WriteLine("\nDisciplina encontrada\n");
                 Console.WriteLine($"**** Disciplina: {turmaSalva.Disciplina}\nTurma: " +
-                    $"{turmaSalva.Turma}\nAluno: {turmaSalva.NomeAluno}\nHorário: {turmaSalva.Horario} ****\n");
+                    $"{turmaSalva.NomeTurma}\nAluno: {turmaSalva.NomeAluno}\nHorário: {turmaSalva.Horario} ****\n");
 
                 Console.WriteLine("\nDigite o novo nome da disciplina: ");
                 var disciplinaNova = Console.ReadLine().ToUpper();
