@@ -1,5 +1,6 @@
 ﻿using LestsCodeEscola.Comum;
 using System;
+using System.Collections.Generic;
 
 namespace LestsCodeEscola.Aluno.Entidades
 {
@@ -8,7 +9,7 @@ namespace LestsCodeEscola.Aluno.Entidades
         public string Nome { get; set; }
         public int Idade { get; set; }
         public string Cpf { get; set; }
-        //public List<Nota> Notas { get; set; }
+        public List<Nota.Entidades.Nota> Notas { get; set; } = new();
         public Guid TurmaId { get; set; }
         //public virtual Turma Turma { get; set; }
 
@@ -23,6 +24,11 @@ namespace LestsCodeEscola.Aluno.Entidades
         {
             Nome = novoNome;
             Idade = novaIdade;
+        }
+
+        public void AdicionarNota(Nota.Entidades.Nota nota)
+        {
+            Notas.Add(nota);
         }
     }
 }
