@@ -4,6 +4,7 @@ using LestsCodeEscola.Comum;
 using LestsCodeEscola.Estudante.Entidades;
 using LestsCodeEscola.Estudante.Repository;
 using System;
+using System.Collections.Generic;
 using System.Linq;
 using System.Threading;
 
@@ -32,6 +33,7 @@ namespace LestsCodeEscola.Estudante.Services
             Console.WriteLine("2 - Cadastrar");
             Console.WriteLine("3 - Editar");
             Console.WriteLine("4 - Deletar");
+            Console.WriteLine("9 - Previsão nota Final");
             Console.WriteLine("0 - Voltar\n");
             Console.Write("Opção: ");
 
@@ -51,6 +53,10 @@ namespace LestsCodeEscola.Estudante.Services
 
                 case "4":
                     Deletar();
+                    break;
+
+                case "9":
+                    PrevisaoNotaFinal();
                     break;
 
                 case "0":
@@ -163,6 +169,27 @@ namespace LestsCodeEscola.Estudante.Services
                 Console.WriteLine("Digite qualquer tecla para continuar...");
                 Console.ReadKey();
             }
+        }
+
+        private void PrevisaoNotaFinal()
+        {
+            Console.Clear();
+
+            var aluno = ObterAlunoSalvo();
+
+            var notas = aluno.Notas.Select(x => x.Valor).ToList().Count == 0 ? new List<float> { 10 } : aluno.Notas.Select(x => x.Valor).ToList();
+            Console.Clear();
+            
+            for (int i = 0; i < notas.Count; i++)
+            {
+                Console.WriteLine($"{i + 1}ª Nota: {notas[i]}");
+            }
+
+            CalcularNotasNecessarias(notas);
+
+            Console.WriteLine();
+            Console.WriteLine("Digite qualquer tecla para continuar");
+            Console.ReadKey();
         }
 
         private static string ObterNome(OpcaoCrud opcao)
@@ -306,6 +333,42 @@ namespace LestsCodeEscola.Estudante.Services
             } while (deveBuscarNovamente);
 
             return turmaSelecionada;
+        }
+
+        private static void CalcularNotasNecessarias(List<float> notas)
+        {
+            var minimoPontos = 24;
+            var quantidadeNotasAluno = notas.Count;
+            var pontosNecessarios = minimoPontos - notas.Sum();
+            float notaNecessaria;
+            if(pontosNecessarios > 0)
+            {
+                switch (quantidadeNotasAluno)
+                {
+                    case 1:
+                        notaNecessaria = pontosNecessarios / 3;
+                        Console.WriteLine("As notas mínimas necessárias são:\n");
+                        Console.Write($"2ª Nota: {notaNecessaria:f2}\n3ª Nota:{notaNecessaria:f2}\n4ª Nota: {notaNecessaria:f2}");
+                        break;
+
+                    case 2:
+                        notaNecessaria = pontosNecessarios / 2;
+                        Console.WriteLine("As notas mínimas necessárias são:\n");
+                        Console.Write($"3ª Nota: {notaNecessaria:f2}\n4ª Nota:{notaNecessaria:f2}\n");
+                        break;
+
+                    case 3:
+                        notaNecessaria = pontosNecessarios / 1;
+                        Console.WriteLine("As notas mínimas necessárias são:\n");
+                        Console.Write($"4ª Nota: {notaNecessaria:f2}\n");
+                        break;
+                }
+            }
+            else
+            {
+                Console.WriteLine("\nVocê está passado!!\nVocê pode faltar todo o próximo semestre!");
+            }
+
         }
     }
 }
