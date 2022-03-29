@@ -177,7 +177,7 @@ namespace LestsCodeEscola.Estudante.Services
 
             var aluno = ObterAlunoSalvo();
 
-            var notas = aluno.Notas.Select(x => x.Valor).ToList().Count == 0 ? new List<float> { 10 } : aluno.Notas.Select(x => x.Valor).ToList();
+            var notas = aluno.Notas.Select(x => x.ValorNota).ToList().Count == 0 ? new List<double> { 10 } : aluno.Notas.Select(x => x.ValorNota).ToList();
             Console.Clear();
             
             for (int i = 0; i < notas.Count; i++)
@@ -335,12 +335,12 @@ namespace LestsCodeEscola.Estudante.Services
             return turmaSelecionada;
         }
 
-        private static void CalcularNotasNecessarias(List<float> notas)
+        private static void CalcularNotasNecessarias(List<double> notas)
         {
             var minimoPontos = 24;
             var quantidadeNotasAluno = notas.Count;
             var pontosNecessarios = minimoPontos - notas.Sum();
-            float notaNecessaria;
+            double notaNecessaria;
             if(pontosNecessarios > 0)
             {
                 switch (quantidadeNotasAluno)
