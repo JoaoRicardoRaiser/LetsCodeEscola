@@ -1,5 +1,6 @@
 ﻿using LestsCodeEscola.Aula.Services;
 using LestsCodeEscola.Estudante.Services;
+using LestsCodeEscola.Nota.Services;
 using LestsCodeEscola.Professor.Services;
 using System;
 using System.Threading;
@@ -14,6 +15,7 @@ namespace LestsCodeEscola
             var aulaService = new AulaService();
             var professorService = new ProfessorService();
             var turmaService = new TurmaService();
+            var notaService = new NotaService();
 
             Console.Title = "Lets Code Escola";
             Console.Clear();
@@ -44,6 +46,10 @@ namespace LestsCodeEscola
 
                 case "4":
                     aulaService.Menu();
+                    break;
+
+                case "5":
+                    notaService.Menu();
                     break;
 
                 case "0":

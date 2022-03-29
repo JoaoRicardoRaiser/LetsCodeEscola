@@ -3,7 +3,7 @@ using System.IO;
 
 namespace LestsCodeEscola.Nota.Repository
 {
-    public class NotaRepository: GenericRepository<Entidades.Nota>
+    public class NotaRepository : GenericRepository<Entidades.Nota>
     {
         public NotaRepository()
         {
