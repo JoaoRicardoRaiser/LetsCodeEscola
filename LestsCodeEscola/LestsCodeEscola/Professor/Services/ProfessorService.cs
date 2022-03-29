@@ -1,5 +1,4 @@
-﻿using LestsCodeEscola.Aluno.Repository;
-using LestsCodeEscola.Professor.Repository;
+﻿using LestsCodeEscola.Professor.Repository;
 using System;
 using System.Threading;
 

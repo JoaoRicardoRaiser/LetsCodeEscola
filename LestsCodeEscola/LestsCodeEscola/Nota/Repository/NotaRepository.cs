@@ -7,7 +7,7 @@ namespace LestsCodeEscola.Nota.Repository
     {
         public NotaRepository()
         {
-            Host = Directory.GetCurrentDirectory() + @"\Nota\Database\nota.json";
+            Host = Directory.GetCurrentDirectory() + @"..\..\..\..\Nota\Database\notas.json";
         }
     }
 }

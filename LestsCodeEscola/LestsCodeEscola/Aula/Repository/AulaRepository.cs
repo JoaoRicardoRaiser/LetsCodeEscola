@@ -16,5 +16,11 @@ namespace LestsCodeEscola.Aula.Repository
             var database = GetDatabase();
             return database.FirstOrDefault(x => x.Disciplina == disciplina);
         }
+
+        public Entidades.Aula ObterPorTurma(string turma)
+        {
+            var database = GetDatabase();
+            return database.FirstOrDefault(x => x.Turma == turma);
+        }
     }
 }
