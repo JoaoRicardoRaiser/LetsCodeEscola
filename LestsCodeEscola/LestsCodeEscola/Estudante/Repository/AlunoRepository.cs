@@ -17,5 +17,16 @@ namespace LestsCodeEscola.Estudante.Repository
             var database = GetDatabase();
             return database.SingleOrDefault(x => x.Cpf == cpf);
         }
+
+        public void AdicionarNotaParaAluno(Entidades.Aluno aluno, Nota.Entidades.Nota nota)
+        {
+            var database = GetDatabase();
+            var alunoSalvo = database.SingleOrDefault(x => x.Id == aluno.Id);
+            database.Remove(alunoSalvo);
+
+            aluno.Notas.Add(nota);
+            database.Add(aluno);
+            UpdateDatabase(database);
+        }
     }
 }

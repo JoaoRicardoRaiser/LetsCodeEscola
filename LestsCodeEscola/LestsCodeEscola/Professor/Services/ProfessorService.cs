@@ -1,4 +1,5 @@
-﻿using LestsCodeEscola.Professor.Repository;
+﻿using LestsCodeEscola.Professor.Entidades;
+using LestsCodeEscola.Professor.Repository;
 using System;
 using System.Threading;
 
@@ -7,10 +8,12 @@ namespace LestsCodeEscola.Professor.Services
     public class ProfessorService
     {
         private ProfessorRepository _professorRepository { get; set; }
+        private ChamadaRepository _chamadaRepository{ get; set; }
 
         public ProfessorService()
         {
             _professorRepository = new ProfessorRepository();
+            _chamadaRepository = new ChamadaRepository();
         }
 
         public void Menu()
@@ -47,6 +50,10 @@ namespace LestsCodeEscola.Professor.Services
                         Deletar();
                         break;
 
+                    case "5":
+                        this.MenuPresenca();
+                        break;
+
                     case "0":
                         MenuPrincipal.Iniciar();
                         break;
@@ -64,26 +71,40 @@ namespace LestsCodeEscola.Professor.Services
         {
             Console.Title = "Chamada";
             Console.Clear();
-            while (true)
+            ChamadaBuilder chamadaBuilder = new ChamadaBuilder();
+            var continuar = true;
+            while (continuar)
             {
                 Console.WriteLine("Digite a opção que você deseja\n");
                 Console.WriteLine("1 - Inserir Presença de Aluno");
-                Console.WriteLine("2 - Finalizar Chamada de Hoje");
+                Console.WriteLine("2 - Inserir Turma");
+                Console.WriteLine("3 - Finalizar Chamada de Hoje");
                 Console.WriteLine("0 - Voltar\n");
                 Console.Write("Opção: ");
 
                 switch (Console.ReadLine())
                 {
                     case "1":
-                        // Criar Metodo Que integra aula para inserir alunos
+                        Console.WriteLine("Inseri nome do aluno:");
+                        var nomealuno = Console.ReadLine();
+                        
+                        chamadaBuilder.AddAluno(nomealuno);
                         break;
 
                     case "2":
-                        // Criar Metodo Que finaliza chamada
+                        Console.WriteLine("Inseri codigo da Turma:");
+                        var turma = Console.ReadLine();
+
+                        chamadaBuilder.SetTurma(turma);
+                        break;
+
+                    case "3":
+                        Console.WriteLine("Chamada finalizada");
+                        _chamadaRepository.Criar(chamadaBuilder.FinalizarChamada());
                         break;
 
                     case "0":
-                        this.Menu();
+                        continuar = false;
                         break;
 
                     default:
