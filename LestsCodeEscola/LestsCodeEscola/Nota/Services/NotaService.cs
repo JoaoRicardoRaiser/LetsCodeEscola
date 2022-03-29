@@ -2,6 +2,7 @@
 using LestsCodeEscola.Nota.Repository;
 using LestsCodeEscola.Professor.Repository;
 using System;
+using System.Linq;
 using System.Threading;
 
 namespace LestsCodeEscola.Nota.Services
@@ -140,7 +141,7 @@ namespace LestsCodeEscola.Nota.Services
 
             Console.WriteLine("\nAluno encontrado\n");
             Console.WriteLine($"**** Nome: {aluno.Nome} ****\n");
-            foreach (var nota in aluno.Notas)
+            foreach (var nota in aluno.Notas.ToList())
             {
                 Console.WriteLine($"**** Nota: {nota.ValorNota}\nDisciplina: {nota.Disciplina} ****\n");
                 Console.WriteLine("Gostaria de excluir esta nota? S/N");
